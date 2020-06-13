@@ -96,31 +96,68 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        self.set_light_on()
-        while self.light_is_on():
-            self.swap_item()
-        # two possible paths -- something happens when the robot moves right, something happens when th erobot moves left
-            while self.can_move_right():
-        #     #if the compared item is none or negative you can swap and move
-                if self.compare_item() == -1 or self.compare_item() is None:
-                    self.swap_item()
-        #     #else the robot just moves to the right
-                else:
-                    self.move_right()
-        # #same thing on the left
-            while self.can_move_left():
-        #     #if the compared item is none or negative you can swap and move
-                if self.compare_item() == -1 or self.compare_item() is None:
-                    self.swap_item()
-        #     #else the robot just moves to the left
-                else:
-                    self.move_left()
+        # self.set_light_on()
+        # while self.light_is_on():
+        # # two possible paths -- something happens when the robot moves right, something happens when th erobot moves left
+        #     while self.can_move_right():
+        # #     #if the compared item is none or negative you can swap and move
+        #         if self.compare_item() == -1: 
+        #             self.move_right()
+        #         elif self.compare_item() is None:
+        #             self.swap_item()             
+        # #     #else the robot just moves to the right
+        #         else:
+        #             self.move_right()
+        # # #same thing on the left
+        #     while self.can_move_left():
+        # #     #if the compared item is none or negative you can swap and move
+        #         if self.compare_item() == -1:
+        #             self.swap_item()
+        #         elif self.compare_item() is None:
+                    
+        #             self.can_move_left()
+
+        #     if self.can_move_right():
+        #         self.move_right()
+        #         self.swap_item()
+        #     else:
+        #         self.set_light_off()
                 
-                # if not self.can_move_right():
-                #     self.set_light_off()
-                # else:
-                #     self.set_light_on()
+        # return self._list    
         
+        self.set_light_on()
+
+        while self.light_is_on() == True:
+            #reset light
+            self.set_light_off()
+
+            while self.can_move_right():
+                # pick up an item
+                self.swap_item()
+                self.move_right()
+                # compare to the next item
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_left()
+                self.swap_item()
+                # move on to the next
+                self.move_right()
+
+            #redo from the right
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+                # compare to the item on the left
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+
+        return self._list
+
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
