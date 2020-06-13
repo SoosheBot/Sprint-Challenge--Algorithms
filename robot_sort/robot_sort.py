@@ -96,11 +96,8 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # self.set_light_on()
-        # while self.light_is_on():
-        # # two possible paths -- something happens when the robot moves right, something happens when th erobot moves left
-        #     while self.can_move_right():
-        # #     #if the compared item is none or negative you can swap and move
+     
+        # #     
         #         if self.compare_item() == -1: 
         #             self.move_right()
         #         elif self.compare_item() is None:
@@ -109,46 +106,35 @@ class SortingRobot:
         #         else:
         #             self.move_right()
         # # #same thing on the left
-        #     while self.can_move_left():
-        # #     #if the compared item is none or negative you can swap and move
-        #         if self.compare_item() == -1:
-        #             self.swap_item()
-        #         elif self.compare_item() is None:
-                    
-        #             self.can_move_left()
-
-        #     if self.can_move_right():
-        #         self.move_right()
-        #         self.swap_item()
-        #     else:
-        #         self.set_light_off()
-                
-        # return self._list    
+           
         
         self.set_light_on()
 
+        #reset the light in the while loop
         while self.light_is_on() == True:
-            #reset light
+            #reset the light
             self.set_light_off()
 
+            # two possible paths -- something happens when the robot moves right, something happens when it moves left
             while self.can_move_right():
-                # pick up an item
+                # pick up an item, move to the right
                 self.swap_item()
                 self.move_right()
-                # compare to the next item
+                # compare to the next item it encounters
                 if self.compare_item() == 1:
                     self.swap_item()
                     self.set_light_on()
                 self.move_left()
                 self.swap_item()
-                # move on to the next
+                # move on to the next one
                 self.move_right()
 
-            #redo from the right
+            #now the left side
             while self.can_move_left():
                 self.swap_item()
                 self.move_left()
                 # compare to the item on the left
+                # if the item is lesser, turn on the light and swap the item
                 if self.compare_item() == -1:
                     self.swap_item()
                     self.set_light_on()
