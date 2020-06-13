@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(n) -- the loop is dependent on n to happen
+
+b) O(n^2) -- because there are nested for loops
 
 
-b)
+c) O(n) -- the function runs n times
 
-
-c) 
 
 ## Exercise II
   --I would solve this problem recursively, and I would start on the 0th floor. I would drop the egg from the 0th floor and check if its broken. If no, then I would gather my egg and move up to floor 1, where I would drop the egg and see if it is broken.
