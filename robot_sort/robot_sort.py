@@ -96,27 +96,30 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        self.set_light_on()
+        while self.light_is_on():
+            self.swap_item()
         # two possible paths -- something happens when the robot moves right, something happens when th erobot moves left
-        while self.can_move_right():
-            #if the compared item is none or negative you can swap and move
-            if self.compare_item() == -1 or self.compare_item() is None:
-                self.swap_item()
-                #then robot moves to the right
-                self.move_right()
-            #else the robot just moves to the right
-            else:
-                self.move_right()
-        #same thing on the left
-        while self.can_move_left():
-            #if the compared item is none or negative you can swap and move
-            if self.compare_item() == -1 or self.compare_item() is None:
-                self.swap_item()
-                self.move_left()
-            #else the robot just moves to the left
-            else:
-                self.move_left()
-        if self._item is not None:
-            self.sort()
+            while self.can_move_right():
+        #     #if the compared item is none or negative you can swap and move
+                if self.compare_item() == -1 or self.compare_item() is None:
+                    self.swap_item()
+        #     #else the robot just moves to the right
+                else:
+                    self.move_right()
+        # #same thing on the left
+            while self.can_move_left():
+        #     #if the compared item is none or negative you can swap and move
+                if self.compare_item() == -1 or self.compare_item() is None:
+                    self.swap_item()
+        #     #else the robot just moves to the left
+                else:
+                    self.move_left()
+                
+                # if not self.can_move_right():
+                #     self.set_light_off()
+                # else:
+                #     self.set_light_on()
         
 
 if __name__ == "__main__":
