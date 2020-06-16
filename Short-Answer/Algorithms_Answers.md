@@ -4,7 +4,7 @@
 
 a) O(n) -- the loop is dependent on n to happen
 
-b) O(n^2) -- because there are nested for loops
+b) O(n log(n)) -- because there are nested for loops
 
 
 c) O(n) -- the function runs n times
